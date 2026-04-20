@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Прости меня ❤️</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#ffd6e7,#ffeef5);
+    overflow:hidden;
+}
+
+.page{
+    width:100%;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    position:absolute;
+    top:0;
+    left:0;
+}
+
+h1{
+    font-size:50px;
+    color:#ff4d88;
+    margin-bottom:20px;
+}
+
+img{
+    width:200px;
+    height:auto;
+    border-radius:20px;
+    margin-bottom:20px;
+}
+
+.buttons{
+    position:relative;
+    width:100%;
+    height:200px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    right:5%;
+}
+
+button{
+    padding:15px 35px;
+    font-size:22px;
+    border:none;
+    border-radius:15px;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+#yesBtn{
+    background:#fd0190;
+    color:white;
+    margin-right:20px;
+}
+
+#noBtn{
+    background:#ff00d0;
+    color:white;
+    position:absolute;
+    left:55%;
+}
+
+#page2{
+    display:none;
+    background:linear-gradient(135deg,#ffe6f0,#ffd6e7);
+}
+
+#page2 h1{
+    font-size:60px;
+}
+
+p{
+    font-size:28px;
+    color:#444;
+}
+</style>
+</head>
+<body>
+
+<!-- Первая страница -->
+<div class="page" id="page1">
+
+    <!-- ВСТАВЬ СЮДА СВОЮ GIF -->
+    <img src="c:\Users\kostu\Desktop\Новая папка (2)\WhatsApp Image 2026-04-20 at 12.40.07.jpeg" alt="Котик">
+
+    <h1>Простишь меня? ❤️</h1>
+
+    <div class="buttons">
+        <button id="yesBtn">Да</button>
+        <button id="noBtn">Нет</button>
+    </div>
+</div>
+
+<!-- Вторая страница -->
+<div class="page" id="page2">
+    <h1>УРААА ❤️</h1>
+    <p>Спасибо что простила жаным 🥹 </p>
+    <br>
+    <p>я тебя очень сильно люблююю</p>
+
+    <!-- Можно вставить вторую гифку -->
+    <img src="c:\Users\kostu\Desktop\Новая папка (2)\WhatsApp Image 2026-04-20 at 12.45.28.jpeg" alt="Котик">
+</div>
+
+
+<script>
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+
+// Кнопка НЕТ убегает от мышки
+document.addEventListener("mousemove", function(e){
+
+    const rect = noBtn.getBoundingClientRect();
+
+    const btnX = rect.left + rect.width / 2;
+    const btnY = rect.top + rect.height / 2;
+
+    const distanceX = e.clientX - btnX;
+    const distanceY = e.clientY - btnY;
+
+    const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+
+    if(distance < 100){
+
+        let newX = noBtn.offsetLeft - distanceX * 4;
+        let newY = noBtn.offsetTop - distanceY * 4;
+
+        // границы сайта
+        newX = Math.max(0, Math.min(window.innerWidth - noBtn.offsetWidth, newX));
+        newY = Math.max(0, Math.min(window.innerHeight - noBtn.offsetHeight, newY));
+
+        noBtn.style.left = newX + "px";
+        noBtn.style.top = newY + "px";
+    }
+});
+
+yesBtn.addEventListener("click", function(){
+    page1.style.display = "none";
+    page2.style.display = "flex";
+});
+
+</script>
+```
+
+
+</body>
+</html>
+```
